@@ -137,5 +137,5 @@ public class CustomerModel {
         this.verified_at = verified_at;
     }
     
-    
+
 }
