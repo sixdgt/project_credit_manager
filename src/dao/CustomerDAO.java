@@ -15,7 +15,7 @@ public interface CustomerDAO {
     
     public abstract boolean updateCustomer(CustomerController cc);
     
-    public abstract boolean selectCustomerById(CustomerController cc);
+    public abstract ResultSet selectCustomerById(CustomerController cc);
     
     public abstract boolean deleteCustomer(CustomerController cc);
 }
