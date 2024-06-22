@@ -110,7 +110,10 @@ public class AdminLogin extends javax.swing.JFrame {
             ac.username = username;
             ac.password = password;
             if(ac.doLogin(ac)){
-                JOptionPane.showMessageDialog(rootPane, "Login Success");       
+                JOptionPane.showMessageDialog(rootPane, "Login Success");
+                Dashboard dash = new Dashboard();
+                dash.setVisible(true); // will show Dashboard Frame
+                this.dispose(); // this will hide AdminLogin Frame
             } else {
                 JOptionPane.showMessageDialog(rootPane, "Invalid username or password");
             }
