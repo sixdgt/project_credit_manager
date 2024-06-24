@@ -352,7 +352,11 @@ public class CreditRequest extends javax.swing.JFrame {
         cc.income_source = income_source;
         cc.valuation_date = valuation_date;
         cc.credit_type = credit_type;
-        cc.is_eligible = is_eligible;
+        if(is_eligible.equals("Yes")){
+            cc.is_eligible = 1;
+        } else {
+            cc.is_eligible = 0;
+        }
         cc.credit_amount = credit_amount;
         cc.credit_status = credit_status;
         cc.annual_income = annual_income;

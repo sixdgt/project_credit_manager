@@ -11,7 +11,7 @@ public class CustomerModel {
     private String property_type;
     private String valuation_date;
     private String credit_type;
-    private String is_eligible;
+    private int is_eligible;
     private double credit_amount;
     private String credit_status;
     private String applied_at;
@@ -97,11 +97,11 @@ public class CustomerModel {
         this.credit_type = credit_type;
     }
 
-    public String getIsEligible() {
+    public int getIsEligible() {
         return is_eligible;
     }
 
-    public void setIsEligible(String is_eligible) {
+    public void setIsEligible(int is_eligible) {
         this.is_eligible = is_eligible;
     }
 

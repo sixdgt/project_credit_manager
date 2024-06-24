@@ -12,7 +12,7 @@ public class CustomerController {
     public String valuation_date;
     public String income_source;
     public String credit_type;
-    public String is_eligible;
+    public int is_eligible;
     public String credit_status;
     public double credit_amount = 0.00;
     public double property_valuation = 0.00;
