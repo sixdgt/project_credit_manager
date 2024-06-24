@@ -118,7 +118,8 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btn_add_creditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_creditActionPerformed
         // TODO add your handling code here:
-        
+        CreditRequest cr = new CreditRequest();
+        cr.setVisible(true);
     }//GEN-LAST:event_btn_add_creditActionPerformed
 
     /**

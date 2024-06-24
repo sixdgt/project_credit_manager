@@ -4,6 +4,9 @@
  */
 package view;
 
+import controller.CustomerController;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Mangal Tamang
@@ -254,6 +257,11 @@ public class CreditRequest extends javax.swing.JFrame {
         );
 
         btn_add_request.setText("Add Credit Request");
+        btn_add_request.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_add_requestActionPerformed(evt);
+            }
+        });
 
         btn_close.setText("Close");
         btn_close.addActionListener(new java.awt.event.ActionListener() {
@@ -309,7 +317,52 @@ public class CreditRequest extends javax.swing.JFrame {
     private void btn_closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_closeActionPerformed
         // TODO add your handling code here:
         this.dispose();
+//        System.exit(0);
     }//GEN-LAST:event_btn_closeActionPerformed
+
+    private void btn_add_requestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_add_requestActionPerformed
+        // TODO add your handling code here:
+        String full_name = text_full_name.getText();
+        String dob = text_dob.getText();
+        String address = text_address.getText();
+        String property_type = text_property_type.getText();
+        String valuation_date = text_valuation_date.getText();
+        String income_source = text_income_source.getText();
+        String credit_type = text_credit_type.getText();
+        String is_eligible = text_eligible.getText();
+        String credit_status = text_credit_status.getText();
+        double credit_amount = 0.00;
+        double property_valuation = 0.00;
+        double annual_income = 0.00;
+        try {
+            credit_amount = Double.parseDouble(text_credit_amount.getText());
+            property_valuation = Double.parseDouble(text_valuation.getText());
+            annual_income = Double.parseDouble(text_annual_income.getText());
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(panel_customer, "Please enter numeric value");
+        }
+        // please do validation on you own
+        
+        CustomerController cc = new CustomerController();
+        cc.full_name = full_name;
+        cc.dob = dob;
+        cc.address = address;
+        cc.property_type = property_type;
+        cc.property_valuation = property_valuation;
+        cc.income_source = income_source;
+        cc.valuation_date = valuation_date;
+        cc.credit_type = credit_type;
+        cc.is_eligible = is_eligible;
+        cc.credit_amount = credit_amount;
+        cc.credit_status = credit_status;
+        cc.annual_income = annual_income;
+        if(cc.addCustomerCreditRequest(cc)){
+            JOptionPane.showMessageDialog(panel_customer, "Credit request submitted successfully");
+        } else {
+            JOptionPane.showMessageDialog(panel_customer, "Something went wrong. Please try again");
+        }
+
+    }//GEN-LAST:event_btn_add_requestActionPerformed
 
     /**
      * @param args the command line arguments

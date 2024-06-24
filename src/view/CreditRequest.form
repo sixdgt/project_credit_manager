@@ -412,6 +412,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Add Credit Request"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_add_requestActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_close">
       <Properties>
