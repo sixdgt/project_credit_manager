@@ -53,6 +53,11 @@ public class Dashboard extends javax.swing.JFrame {
         btn_remove_credit.setText("Remove Request");
 
         btn_view_all_credit.setText("View All Credit");
+        btn_view_all_credit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_view_all_creditActionPerformed(evt);
+            }
+        });
 
         btn_view_credit.setText("View Credit");
 
@@ -121,6 +126,10 @@ public class Dashboard extends javax.swing.JFrame {
         CreditRequest cr = new CreditRequest();
         cr.setVisible(true);
     }//GEN-LAST:event_btn_add_creditActionPerformed
+
+    private void btn_view_all_creditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_view_all_creditActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_view_all_creditActionPerformed
 
     /**
      * @param args the command line arguments

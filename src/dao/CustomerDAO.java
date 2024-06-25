@@ -2,6 +2,7 @@ package dao;
 
 import java.sql.ResultSet;
 import controller.CustomerController;
+import model.CustomerModel;
 
 public interface CustomerDAO {
     /**
@@ -11,11 +12,11 @@ public interface CustomerDAO {
      */
     public abstract boolean createCustomer(CustomerController cc);
     
-    public abstract ResultSet selectCustomer(CustomerController cc);
+    public abstract CustomerModel selectCustomer();
     
     public abstract boolean updateCustomer(CustomerController cc);
     
-    public abstract ResultSet selectCustomerById(CustomerController cc);
+    public abstract CustomerModel selectCustomerById(CustomerController cc);
     
     public abstract boolean deleteCustomer(CustomerController cc);
 }

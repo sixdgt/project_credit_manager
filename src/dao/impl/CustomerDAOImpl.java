@@ -5,6 +5,7 @@ import dao.CustomerDAO;
 import dbconfig.DbConnection;
 import java.sql.ResultSet;
 import model.CustomerModel;
+import java.sql.SQLException;
 
 public class CustomerDAOImpl implements CustomerDAO {
     DbConnection connect;
@@ -47,8 +48,31 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public ResultSet selectCustomer(CustomerController cc) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public CustomerModel selectCustomer() {
+        CustomerModel cm = new CustomerModel();
+        try {
+            String sql = "SELECT * FROM customer";
+            ResultSet rs = this.connect.selectQueryBuilder(sql);
+            while(rs.next()){
+                cm.setCustomerId(rs.getInt("customer_id"));
+                cm.setFullName(rs.getString("full_name"));
+                cm.setDob(rs.getString("dob"));
+                cm.setAddress(rs.getString("address"));
+                cm.setAnnualIncome(rs.getDouble("annual_income"));
+                cm.setIncomeSource(rs.getString("income_source"));
+                cm.setPropertyValuation(rs.getDouble("property_valuation"));
+                cm.setPropertyType(rs.getString("property_type"));
+                cm.setValuationDate(rs.getString("valuation_date"));
+                cm.setCreditType(rs.getString("credit_type"));
+                cm.setIsEligible(rs.getInt("is_eligible"));
+                cm.setCreditAmount(rs.getDouble("credit_amount"));
+                cm.setCreditStatus(rs.getString("credit_status"));
+                cm.setAppliedAt(rs.getString("applied_at"));
+            }
+        } catch (SQLException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+        return cm;
     }
 
     @Override
@@ -57,7 +81,7 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public ResultSet selectCustomerById(CustomerController cc) {
+    public CustomerModel selectCustomerById(CustomerController cc) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 

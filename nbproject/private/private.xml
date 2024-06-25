@@ -5,8 +5,11 @@
         <group>
             <file>file:/C:/Users/flaw-/Documents/NetBeansProjects/ProjectCreditManagerMVC/src/view/AdminLogin.java</file>
             <file>file:/C:/Users/flaw-/Documents/NetBeansProjects/ProjectCreditManagerMVC/src/view/Dashboard.java</file>
+            <file>file:/C:/Users/flaw-/Documents/NetBeansProjects/ProjectCreditManagerMVC/src/controller/CustomerController.java</file>
             <file>file:/C:/Users/flaw-/Documents/NetBeansProjects/ProjectCreditManagerMVC/src/view/CreditRequest.java</file>
+            <file>file:/C:/Users/flaw-/Documents/NetBeansProjects/ProjectCreditManagerMVC/src/model/CustomerModel.java</file>
             <file>file:/C:/Users/flaw-/Documents/NetBeansProjects/ProjectCreditManagerMVC/src/view/EditCredit.java</file>
+            <file>file:/C:/Users/flaw-/Documents/NetBeansProjects/ProjectCreditManagerMVC/src/dao/impl/CustomerDAOImpl.java</file>
         </group>
     </open-files>
 </project-private>
