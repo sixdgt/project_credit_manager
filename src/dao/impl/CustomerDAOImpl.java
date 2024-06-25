@@ -6,13 +6,19 @@ import dbconfig.DbConnection;
 import java.sql.ResultSet;
 import model.CustomerModel;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 public class CustomerDAOImpl implements CustomerDAO {
+
     DbConnection connect;
-    public CustomerDAOImpl(){
+
+    public CustomerDAOImpl() {
         connect = DbConnection.getConnection();
     }
-    
+
     @Override
     public boolean createCustomer(CustomerController cc) {
         boolean status = false;
@@ -34,12 +40,12 @@ public class CustomerDAOImpl implements CustomerDAO {
                     + "income_source, property_valuation, property_type, valuation_date,"
                     + "credit_type, is_eligible, credit_amount, credit_status) VALUES("
                     + "'" + cm.getFullName() + "', '" + cm.getDob() + "',"
-                    + "'"+ cm.getAddress() +"', "+ cm.getAnnualIncome()+ ","
-                    + "'"+cm.getIncomeSource()+"', "+cm.getPropertyValuation() + ","
-                    + "'"+cm.getPropertyType() + "', '"+cm.getValuationDate()+"',"
-                    + "'"+cm.getCreditType() + "', '"+ cm.getIsEligible() + "', "
-                    + cm.getCreditAmount() + ", '" +cm.getCreditStatus() + "')";
-            if(this.connect.iudQueryBuilder(sql)){
+                    + "'" + cm.getAddress() + "', " + cm.getAnnualIncome() + ","
+                    + "'" + cm.getIncomeSource() + "', " + cm.getPropertyValuation() + ","
+                    + "'" + cm.getPropertyType() + "', '" + cm.getValuationDate() + "',"
+                    + "'" + cm.getCreditType() + "', '" + cm.getIsEligible() + "', "
+                    + cm.getCreditAmount() + ", '" + cm.getCreditStatus() + "')";
+            if (this.connect.iudQueryBuilder(sql)) {
                 status = true;
             }
         } catch (Exception e) {
@@ -48,12 +54,14 @@ public class CustomerDAOImpl implements CustomerDAO {
     }
 
     @Override
-    public CustomerModel selectCustomer() {
-        CustomerModel cm = new CustomerModel();
+    public HashMap<Integer, CustomerModel> selectCustomer() {
+        HashMap<Integer, CustomerModel> customers = new HashMap<>();
         try {
             String sql = "SELECT * FROM customer";
             ResultSet rs = this.connect.selectQueryBuilder(sql);
-            while(rs.next()){
+            int counter = 0;
+            while (rs.next()) {
+                CustomerModel cm = new CustomerModel();
                 cm.setCustomerId(rs.getInt("customer_id"));
                 cm.setFullName(rs.getString("full_name"));
                 cm.setDob(rs.getString("dob"));
@@ -68,11 +76,13 @@ public class CustomerDAOImpl implements CustomerDAO {
                 cm.setCreditAmount(rs.getDouble("credit_amount"));
                 cm.setCreditStatus(rs.getString("credit_status"));
                 cm.setAppliedAt(rs.getString("applied_at"));
+                customers.put(counter, cm);
+                counter++;
             }
         } catch (SQLException e) {
             System.out.println("Error: " + e.getMessage());
         }
-        return cm;
+        return customers;
     }
 
     @Override

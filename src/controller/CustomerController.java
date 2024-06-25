@@ -2,6 +2,10 @@ package controller;
 
 import dao.CustomerDAO;
 import dao.impl.CustomerDAOImpl;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import model.CustomerModel;
 
 public class CustomerController {
     // attributes of customer
@@ -17,6 +21,8 @@ public class CustomerController {
     public double credit_amount = 0.00;
     public double property_valuation = 0.00;
     public double annual_income = 0.00;
+    public String applied_date;
+    
     CustomerDAO cd;
     
     public boolean addCustomerCreditRequest(CustomerController cc){
@@ -27,4 +33,10 @@ public class CustomerController {
         }
         return status;
     }
-}
+    
+    public HashMap<Integer, CustomerModel> showAllCustomerCreditRequest(){
+        CustomerDAO cdao = new CustomerDAOImpl();
+        HashMap<Integer, CustomerModel> cm = cdao.selectCustomer();
+        return cm;
+    }
+}   

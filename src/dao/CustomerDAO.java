@@ -2,6 +2,8 @@ package dao;
 
 import java.sql.ResultSet;
 import controller.CustomerController;
+import java.util.ArrayList;
+import java.util.HashMap;
 import model.CustomerModel;
 
 public interface CustomerDAO {
@@ -12,7 +14,7 @@ public interface CustomerDAO {
      */
     public abstract boolean createCustomer(CustomerController cc);
     
-    public abstract CustomerModel selectCustomer();
+    public abstract HashMap<Integer, CustomerModel> selectCustomer();
     
     public abstract boolean updateCustomer(CustomerController cc);
     

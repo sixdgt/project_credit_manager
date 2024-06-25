@@ -1,15 +1,15 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
-/**
- *
- * @author Mangal Tamang
- */
-public class Dashboard extends javax.swing.JFrame {
+import controller.CustomerController;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import javax.swing.table.DefaultTableModel;
+import model.CustomerModel;
 
+public class Dashboard extends javax.swing.JFrame {
+    
     /**
      * Creates new form Dashboard
      */
@@ -129,6 +129,20 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void btn_view_all_creditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_view_all_creditActionPerformed
         // TODO add your handling code here:
+        CustomerController cc = new CustomerController();
+        HashMap<Integer, CustomerModel> customers = cc.showAllCustomerCreditRequest();
+        
+        DefaultTableModel dtm = (DefaultTableModel) tbl_credits.getModel();
+        dtm.setRowCount(0);
+        int counter = 1;
+        for(Map.Entry m:customers.entrySet()){
+            CustomerModel cm = (CustomerModel) m.getValue();
+            Object customer[] = {counter, cm.getCustomerId(), 
+                cm.getFullName(), cm.getAppliedAt(), cm.getCreditStatus()};
+            dtm.addRow(customer);
+            counter++;
+        }
+        
     }//GEN-LAST:event_btn_view_all_creditActionPerformed
 
     /**
