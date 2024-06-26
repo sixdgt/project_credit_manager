@@ -49,6 +49,11 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         btn_edit_credit.setText("Edit Credit");
+        btn_edit_credit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_edit_creditActionPerformed(evt);
+            }
+        });
 
         btn_remove_credit.setText("Remove Request");
 
@@ -144,6 +149,18 @@ public class Dashboard extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btn_view_all_creditActionPerformed
+
+    private void btn_edit_creditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_edit_creditActionPerformed
+        // TODO add your handling code here:
+        int row_id = tbl_credits.getSelectedRow();
+        int customer_id = Integer.parseInt(tbl_credits.getValueAt(row_id, 1) + "");
+                
+        CustomerController cc = new CustomerController();
+        cc.customer_id = customer_id;
+        EditCredit ec = new EditCredit();
+        ec.setCustomerCreditRequest(cc.getCustomerCreditRequest(cc));
+        ec.setVisible(true);
+    }//GEN-LAST:event_btn_edit_creditActionPerformed
 
     /**
      * @param args the command line arguments

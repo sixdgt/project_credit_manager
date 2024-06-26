@@ -9,6 +9,7 @@ import model.CustomerModel;
 
 public class CustomerController {
     // attributes of customer
+    public int customer_id;
     public String full_name;
     public String dob;
     public String address;
@@ -38,5 +39,27 @@ public class CustomerController {
         CustomerDAO cdao = new CustomerDAOImpl();
         HashMap<Integer, CustomerModel> cm = cdao.selectCustomer();
         return cm;
+    }
+    
+    public CustomerController getCustomerCreditRequest(CustomerController cc){
+        CustomerDAO cdao = new CustomerDAOImpl();
+        // here selectCustomerById() method returns CustomerModel object
+        // so we are referencing CustomerModel object with the return object
+        CustomerModel customer = cdao.selectCustomerById(cc);
+        cc.customer_id = customer.getCustomerId();
+        cc.full_name = customer.getFullName();
+        cc.dob = customer.getDob();
+        cc.address = customer.getAddress();
+        cc.income_source = customer.getIncomeSource();
+        cc.annual_income = customer.getAnnualIncome();
+        cc.property_type = customer.getPropertyType();
+        cc.property_valuation = customer.getPropertyValuation();
+        cc.is_eligible = customer.getIsEligible();
+        cc.credit_type = customer.getCreditType();
+        cc.credit_status = customer.getCreditStatus();
+        cc.credit_amount = customer.getCreditAmount();
+        cc.applied_date = customer.getAppliedAt();
+        cc.valuation_date = customer.getValuationDate();
+        return cc;
     }
 }   

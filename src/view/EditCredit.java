@@ -4,12 +4,14 @@
  */
 package view;
 
+import controller.CustomerController;
+
 /**
  *
  * @author Mangal Tamang
  */
 public class EditCredit extends javax.swing.JFrame {
-
+    int customer_id;
     /**
      * Creates new form EditCredit
      */
@@ -20,7 +22,22 @@ public class EditCredit extends javax.swing.JFrame {
         edit_tab_pane.add(IncomeDetail,"Income Details", 2);
         edit_tab_pane.add(CreditDetail,"Credit Details", 3);
     }
-
+    
+    public void setCustomerCreditRequest(CustomerController cc){
+        customer_id = cc.customer_id;
+        text_full_name.setText(cc.full_name);
+        text_dob.setText(cc.dob);
+        text_address.setText(cc.address);
+        text_income_source.setText(cc.income_source);
+        text_annual_income.setText(cc.annual_income+ "");
+        text_property_type.setText(cc.property_type);
+        text_valuation.setText(cc.property_valuation + "");
+        text_valuation_date.setText(cc.valuation_date);
+        text_credit_amount.setText(cc.credit_amount + "");
+        text_credit_status.setText(cc.credit_status);
+        text_credit_type.setText(cc.credit_type);
+        text_eligible.setText(cc.is_eligible + "");
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,11 +64,11 @@ public class EditCredit extends javax.swing.JFrame {
         lbl_valuation_date = new javax.swing.JLabel();
         text_valuation_date = new javax.swing.JTextField();
         IncomeDetail = new javax.swing.JInternalFrame();
-        panel_income2 = new javax.swing.JPanel();
-        lbl_income_source2 = new javax.swing.JLabel();
-        text_income_source2 = new javax.swing.JTextField();
-        lbl_annual_income2 = new javax.swing.JLabel();
-        text_annual_income2 = new javax.swing.JTextField();
+        panel_income = new javax.swing.JPanel();
+        lbl_income_source = new javax.swing.JLabel();
+        text_income_source = new javax.swing.JTextField();
+        lbl_annual_income = new javax.swing.JLabel();
+        text_annual_income = new javax.swing.JTextField();
         CreditDetail = new javax.swing.JInternalFrame();
         panel_credit = new javax.swing.JPanel();
         lbl_credit_type = new javax.swing.JLabel();
@@ -208,40 +225,46 @@ public class EditCredit extends javax.swing.JFrame {
 
         IncomeDetail.setVisible(true);
 
-        panel_income2.setBorder(javax.swing.BorderFactory.createTitledBorder("Income Details"));
+        panel_income.setBorder(javax.swing.BorderFactory.createTitledBorder("Income Details"));
 
-        lbl_income_source2.setText("Income Source:");
+        lbl_income_source.setText("Income Source:");
 
-        lbl_annual_income2.setText("Annual Income:");
+        text_income_source.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                text_income_sourceActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout panel_income2Layout = new javax.swing.GroupLayout(panel_income2);
-        panel_income2.setLayout(panel_income2Layout);
-        panel_income2Layout.setHorizontalGroup(
-            panel_income2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_income2Layout.createSequentialGroup()
+        lbl_annual_income.setText("Annual Income:");
+
+        javax.swing.GroupLayout panel_incomeLayout = new javax.swing.GroupLayout(panel_income);
+        panel_income.setLayout(panel_incomeLayout);
+        panel_incomeLayout.setHorizontalGroup(
+            panel_incomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_incomeLayout.createSequentialGroup()
                 .addGap(13, 13, 13)
-                .addGroup(panel_income2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel_income2Layout.createSequentialGroup()
-                        .addComponent(lbl_income_source2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panel_incomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel_incomeLayout.createSequentialGroup()
+                        .addComponent(lbl_income_source, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(text_income_source2))
-                    .addGroup(panel_income2Layout.createSequentialGroup()
-                        .addComponent(lbl_annual_income2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(text_income_source))
+                    .addGroup(panel_incomeLayout.createSequentialGroup()
+                        .addComponent(lbl_annual_income, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(text_annual_income2)))
+                        .addComponent(text_annual_income)))
                 .addGap(19, 19, 19))
         );
-        panel_income2Layout.setVerticalGroup(
-            panel_income2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel_income2Layout.createSequentialGroup()
+        panel_incomeLayout.setVerticalGroup(
+            panel_incomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel_incomeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panel_income2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_income_source2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(text_income_source2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panel_incomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_income_source, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(text_income_source, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panel_income2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lbl_annual_income2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(text_annual_income2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panel_incomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lbl_annual_income, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(text_annual_income, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(10, Short.MAX_VALUE))
         );
 
@@ -253,7 +276,7 @@ public class EditCredit extends javax.swing.JFrame {
             .addGroup(IncomeDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(IncomeDetailLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(panel_income2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panel_income, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         IncomeDetailLayout.setVerticalGroup(
@@ -262,7 +285,7 @@ public class EditCredit extends javax.swing.JFrame {
             .addGroup(IncomeDetailLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(IncomeDetailLayout.createSequentialGroup()
                     .addGap(10, 10, 10)
-                    .addComponent(panel_income2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panel_income, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(11, Short.MAX_VALUE)))
         );
 
@@ -364,12 +387,11 @@ public class EditCredit extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lbl_title, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(edit_tab_pane)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(edit_tab_pane))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btn_update, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
@@ -395,6 +417,10 @@ public class EditCredit extends javax.swing.JFrame {
         System.out.println(text_credit_status.getText());
         
     }//GEN-LAST:event_btn_updateActionPerformed
+
+    private void text_income_sourceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_text_income_sourceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_text_income_sourceActionPerformed
 
     /**
      * @param args the command line arguments
@@ -440,8 +466,6 @@ public class EditCredit extends javax.swing.JFrame {
     private javax.swing.JTabbedPane edit_tab_pane;
     private javax.swing.JLabel lbl_address;
     private javax.swing.JLabel lbl_annual_income;
-    private javax.swing.JLabel lbl_annual_income1;
-    private javax.swing.JLabel lbl_annual_income2;
     private javax.swing.JLabel lbl_credit_amount;
     private javax.swing.JLabel lbl_credit_status;
     private javax.swing.JLabel lbl_credit_type;
@@ -449,8 +473,6 @@ public class EditCredit extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_eligible;
     private javax.swing.JLabel lbl_full_name;
     private javax.swing.JLabel lbl_income_source;
-    private javax.swing.JLabel lbl_income_source1;
-    private javax.swing.JLabel lbl_income_source2;
     private javax.swing.JLabel lbl_property_type;
     private javax.swing.JLabel lbl_title;
     private javax.swing.JLabel lbl_valuation;
@@ -458,13 +480,9 @@ public class EditCredit extends javax.swing.JFrame {
     private javax.swing.JPanel panel_credit;
     private javax.swing.JPanel panel_customer;
     private javax.swing.JPanel panel_income;
-    private javax.swing.JPanel panel_income1;
-    private javax.swing.JPanel panel_income2;
     private javax.swing.JPanel panel_property;
     private javax.swing.JTextField text_address;
     private javax.swing.JTextField text_annual_income;
-    private javax.swing.JTextField text_annual_income1;
-    private javax.swing.JTextField text_annual_income2;
     private javax.swing.JTextField text_credit_amount;
     private javax.swing.JTextField text_credit_status;
     private javax.swing.JTextField text_credit_type;
@@ -472,8 +490,6 @@ public class EditCredit extends javax.swing.JFrame {
     private javax.swing.JTextField text_eligible;
     private javax.swing.JTextField text_full_name;
     private javax.swing.JTextField text_income_source;
-    private javax.swing.JTextField text_income_source1;
-    private javax.swing.JTextField text_income_source2;
     private javax.swing.JTextField text_property_type;
     private javax.swing.JTextField text_valuation;
     private javax.swing.JTextField text_valuation_date;

@@ -246,7 +246,7 @@
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="panel_income2" max="32767" attributes="0"/>
+                      <Component id="panel_income" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -258,7 +258,7 @@
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="panel_income2" min="-2" max="-2" attributes="0"/>
+                      <Component id="panel_income" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="11" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -266,7 +266,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="panel_income2">
+        <Container class="javax.swing.JPanel" name="panel_income">
           <Properties>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
@@ -282,14 +282,14 @@
                       <EmptySpace min="13" pref="13" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lbl_income_source2" min="-2" pref="136" max="-2" attributes="0"/>
+                              <Component id="lbl_income_source" min="-2" pref="136" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="text_income_source2" max="32767" attributes="0"/>
+                              <Component id="text_income_source" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="lbl_annual_income2" min="-2" pref="136" max="-2" attributes="0"/>
+                              <Component id="lbl_annual_income" min="-2" pref="136" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="text_annual_income2" max="32767" attributes="0"/>
+                              <Component id="text_annual_income" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="19" pref="19" max="-2" attributes="0"/>
@@ -301,13 +301,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbl_income_source2" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="text_income_source2" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="lbl_income_source" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="text_income_source" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="lbl_annual_income2" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="text_annual_income2" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                          <Component id="lbl_annual_income" alignment="3" min="-2" pref="24" max="-2" attributes="0"/>
+                          <Component id="text_annual_income" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="10" max="32767" attributes="0"/>
                   </Group>
@@ -315,19 +315,22 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lbl_income_source2">
+            <Component class="javax.swing.JLabel" name="lbl_income_source">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Income Source:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="text_income_source2">
+            <Component class="javax.swing.JTextField" name="text_income_source">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="text_income_sourceActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="lbl_annual_income2">
+            <Component class="javax.swing.JLabel" name="lbl_annual_income">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Annual Income:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="text_annual_income2">
+            <Component class="javax.swing.JTextField" name="text_annual_income">
             </Component>
           </SubComponents>
         </Container>
@@ -491,13 +494,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="lbl_title" alignment="0" pref="725" max="32767" attributes="0"/>
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="edit_tab_pane" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="edit_tab_pane" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="btn_update" min="-2" pref="250" max="-2" attributes="0"/>
                   </Group>
               </Group>
